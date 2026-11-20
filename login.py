@@ -15,7 +15,7 @@ class Login:
             return "Password não pode ficar vazio."
         return "Password Válido."
         if len(self.password) < 4 or len(self.password) > 8:
-            return "Password deve conter no mino 4  e no máximo 8 caracteres."
+            return "Password deve conter no mínimo 4  e no máximo 8 caracteres."
         return "Password Válido."
     def gerar_token(self):
         if self.password_() =="Password Válido.":
@@ -23,8 +23,17 @@ class Login:
             return self.token
         return "Não foi possivel gerar o token."
 
-login = Login ("Rafael","123456", " ")
 
-print(login.password_())
+    def logar_sistema(self, username,token):
+        if self.username == username:
+            if self.token == token:
+                return "Validado"
+        return "Não Validado"
 
+
+
+login = Login ("Rafael","123456", "")
+
+print(login.logar_sistema("Rafael", '78ac36eedb0969040c447b20aeb2b010'))
+# print(login.password_())
 print(login.gerar_token())
